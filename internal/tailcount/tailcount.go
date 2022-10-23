@@ -108,18 +108,6 @@ func (c *Counter) Run() {
 			peakBuckets = make([]int, c.interval/c.peakInterval)
 		}
 	}
-
-	// count := 0
-
-	// for {
-	// 	select {
-	// 	case <-t.Lines:
-	// 		count++
-	// 		log.Printf("got line %d\n", count)
-	// 	case <-ticker.C:
-	// 		log.Println("tick")
-	// 	}
-	// }
 }
 
 func sum(s []int) int {

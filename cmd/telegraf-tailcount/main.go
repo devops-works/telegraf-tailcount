@@ -25,6 +25,11 @@ type config struct {
 }
 
 func main() {
+	if len(os.Args) == 1 {
+		usage()
+		os.Exit(0)
+	}
+
 	c, err := getArgs(os.Args[1:])
 	if err != nil {
 		fmt.Printf("error parsing arguments: %v\n", err)
@@ -111,6 +116,7 @@ func getArgs(args []string) (*config, error) {
 }
 
 func usage() {
+	fmt.Printf("telegraf-tailcount version %s (built %s)\n\n", Version, BuildDate)
 	fmt.Println("Usage: telegraf-tailcount [options] file")
 	fmt.Println("Options:")
 	fmt.Println("  -i int     Interval in seconds (default 10)")
