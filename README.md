@@ -37,7 +37,8 @@ tailcount,file=/tmp/log,foo=bar sum=35,max=6,min=1
 So if you're looking at computing requests per second from an http log file,
 you'll want _Peak interval_ to be 1.
 
-Note that _Interval_ must be an integer multiple of _Peak interval_.
+Note that _Interval_ must be a multiple of _Peak interval_, and both must be
+integers.
 
 ### Telegraf config
 
