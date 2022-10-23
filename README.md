@@ -30,6 +30,15 @@ tailcount,file=/tmp/log,foo=bar sum=35,max=6,min=1
 ...
 ```
 
+- _Interval_ is the metric output interval on STDOUT.
+- _Peak interval_ is the interval for which telegraf-tailcount will compute min
+  and max
+
+So if you're looking at computing requests per second from an http log file,
+you'll want _Peak interval_ to be 1.
+
+Note that _Interval_ must be an integer multiple of _Peak interval_.
+
 ### Telegraf config
 
 This tool is intended to be used with the 
