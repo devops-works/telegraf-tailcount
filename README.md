@@ -63,4 +63,5 @@ This tool is intended to be used with the
 - `max`: maximum of lines read during a `peakInterval`
 - `min`: minimum of lines read during a `peakInterval`
 - `median`: median of lines read during a `peakInterval`
-- `mean`: mean of lines read during a `peakInterval`
+- `mean`: mean of lines read during a `peakInterval`; basically the same as
+  `sum*peakInterval/interval`
