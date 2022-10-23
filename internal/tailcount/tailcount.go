@@ -103,7 +103,7 @@ func (c *Counter) Run() {
 			index := (int)(time.Since(peakStart).Seconds() / (float64)(c.peakInterval))
 			peakBuckets[int(index)]++
 		case <-ticker.C:
-			fmt.Printf("%s,%s sum=%d,max=%d,min=%d\n", c.measurement, c.tags, sum(peakBuckets), max(peakBuckets), min(peakBuckets))
+			fmt.Printf("%s,%s sum=%d,max=%d,min=%d,mean=%d,median=%d\n", c.measurement, c.tags, sum(peakBuckets), max(peakBuckets), min(peakBuckets), mean(peakBuckets), median(peakBuckets))
 			peakStart = time.Now()
 			peakBuckets = make([]int, c.interval/c.peakInterval)
 		}
@@ -136,4 +136,12 @@ func min(s []int) int {
 		}
 	}
 	return min
+}
+
+func mean(s []int) int {
+	return sum(s) / len(s)
+}
+
+func median(s []int) int {
+	return s[len(s)/2]
 }
