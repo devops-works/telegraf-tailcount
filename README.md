@@ -25,8 +25,8 @@ e.g.:
 
 ```
 $ telegraf-tailcount -t foo=bar -i 10 -p 1 /tmp/log
-tailcount file=/tmp/log,foo=bar sum=31,max=5,min=1
-tailcount file=/tmp/log,foo=bar sum=35,max=6,min=1
+tailcount,file=/tmp/log,foo=bar sum=31,max=5,min=1
+tailcount,file=/tmp/log,foo=bar sum=35,max=6,min=1
 ...
 ```
 
