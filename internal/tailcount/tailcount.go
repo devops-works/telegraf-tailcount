@@ -103,7 +103,7 @@ func (c *Counter) Run() {
 			index := (int)(time.Since(peakStart).Seconds() / (float64)(c.peakInterval))
 			peakBuckets[int(index)]++
 		case <-ticker.C:
-			fmt.Printf("%s %s sum=%d,max=%d,min=%d\n", c.measurement, c.tags, sum(peakBuckets), max(peakBuckets), min(peakBuckets))
+			fmt.Printf("%s,%s sum=%d,max=%d,min=%d\n", c.measurement, c.tags, sum(peakBuckets), max(peakBuckets), min(peakBuckets))
 			peakStart = time.Now()
 			peakBuckets = make([]int, c.interval/c.peakInterval)
 		}
@@ -137,10 +137,3 @@ func min(s []int) int {
 	}
 	return min
 }
-
-// func dumpSlice(s []int) {
-// 	for _, v := range s {
-// 		fmt.Printf("%d ", v)
-// 	}
-// 	fmt.Println()
-// }
