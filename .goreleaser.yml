@@ -11,10 +11,11 @@ builds:
       - CGO_ENABLED=0
     goos:
       - linux
+    main: ./cmd/telegraf-tailcount
     ldflags:
      - -s -w -X main.Version={{.Version}} -X main.BuildDate={{.CommitDate}}
     ignore:
-      - goos: darwin
+      - goos: linux
         goarch: 386
 
 archives:
