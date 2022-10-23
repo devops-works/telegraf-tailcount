@@ -11,9 +11,6 @@ builds:
       - CGO_ENABLED=0
     goos:
       - linux
-      - darwin
-      - freebsd
-      - openbsd
     ldflags:
      - -s -w -X main.Version={{.Version}} -X main.BuildDate={{.CommitDate}}
     ignore:
