@@ -17,6 +17,9 @@ builds:
     main: ./cmd/telegraf-tailcount
     ldflags:
      - -s -w -X main.Version={{.Version}} -X main.BuildDate={{.CommitDate}}
+    ignore:
+      - goos: freebsd
+        goarch: arm64
 
 archives:
   - format: binary
